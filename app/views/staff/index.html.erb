@@ -1,0 +1,27 @@
+<h1>Staff List</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Designation</th>
+    <th colspan="4"></th>
+  </tr>
+
+  <% @staff.each do |staff| %>
+    <tr>
+      <td><%= staff.name %></td>
+      <td><%= staff.designation %></td>
+      <td><%= link_to 'Details', staff_path(staff) %></td>
+      <td>&nbsp&nbsp&nbsp</td>
+      <td><%= link_to 'Delete', staff_path(staff),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<p>=========================================== </p>
+<br>
+<div>
+<p> Click the below link to enter new staff details </p>
+<%= link_to 'Create', new_staff_path %>
+</div>
